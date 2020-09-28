@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+    <script>
+        //1]
+        var num;
+        document.write('<h2>초기화 전</h2>');
+        document.write('num의 자료형 : '+typeof(num)+' num에 저장된 값 : '+num);
+        //undefined는 하나의 자료형이자 값이다.
+        //2] 변수 초기화
+        num=100;
+        document.writeln('<h2>초기화 후</h2>');
+        num=3.14;
+        document.write('<br>num의 자료형 : '+typeof(num)+' num에 저장된 값 : '+num);
+        num=true;
+        document.write('<br>num의 자료형 : '+typeof(num)+' num에 저장된 값 : '+num);
+
+        //3] 선언과 동시에 초기화
+        document.write('<br><h2>변수 선언과 동시에 초기화</h2>');
+        var str = '자바스크립트';
+        document.write('<br><h2>,(콤마)로 구분하여 동시에 변수 여러개 선언하기</h2>');
+        var num1=10, num2,str1='자스',str2;
+        document.write(num1+num2);//undefined+number = NaN(Not a Number)
+        document.write('<br>'+typeof (num1+num2));
+
+        //NaN을 판단하는 함수 : isNaN()
+        if(isNaN(num1+num2))
+            document.write('<br>num1+num2 는 NaN이다.');
+        else
+            document.write('<br>num1+num2 는 NaN이 아니다.');
+
+        document.write('<br>'+typeof((str1+str2)))//문자열+문자열 = 문자열 (값은 문자열undefined)
+        //5] 자스의 기타 자료형
+        document.write('<h2>자스의 기본 자료형</h2>');
+        var date = new Date()//생성자 함수
+        document.write('date의 자료형 : '+typeof(date)+' date에 저장된 값 : '+date);
+
+        var nullvar = null;
+        document.write('<br>nullvar의 자료형 : '+typeof(nullvar)+' nullvar에 저장된 값 : '+nullvar);
+
+        var obj = {}; //리터럴 객체
+        document.write('<br>obj의 자료형 : '+typeof(obj)+' obj에 저장된 값 : '+obj);
+        console.log('<br>obj의 자료형 : '+typeof(obj)+' obj에 저장된 값 : '+obj);
+        obj.name = '가길동';
+        obj.age = 20;
+        obj.walk=function(){
+            document.write(this.name+' 가(이) 걷다<br>');
+        };
+        document.write('<br>이름 : '+obj.name+' 나이 : '+obj.age+'<br>');
+        obj.walk();
+
+        var obj2={id:'Kim',pwd:'1234','name':'김길동',eat:function(){
+            document.write(this.name+' 이(가) '+food+'를 먹다.')
+        }};//자스 객체(JSON)
+
+        obj2.toString = function(){
+            return '[아이디:'+this.id+', 비번 : '+this.pwd+', 이름 : '+this.name+']';
+        }
+        console.log(obj2);
+
+        document.write('obj2의 자료형 : '+typeof(obj2)+', obj2의 저장된 값 : '+obj2);
+
+        const PI = 3.14;
+        //document.write('<br>PI의 자료형 : '+typeof(PI)+', PI의 저장된 값 : '+PI);[x] 브라우저는 문제 없지만 콘솔은 문제 있음
+
+        var f = function(a,b){
+            return a+b;
+        };
+        //인자 받을 땐 var 안넣음!
+        document.write('<br>f의 자료형 : '+typeof(f)+', f에 저장된 값 : '+f+'<br>');
+        alert(f(10,5));
+    </script>
+</head>
+<body>
+</body>
+</html>
