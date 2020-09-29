@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P06.html</title>
+</head>
+<body>
+    <!--
+        블락 : 부모의 가로폭 다 차지함 (다른거 못보여줌)
+        문단 나누기용 : p태그
+        인라인 element안에는 block 안됨.
+
+        블락 : 세로배치 (hn, p계열)
+        인라인 : 가로배치 (a태그 등)
+    -->
+    <div>
+        <h2>P태그 연습</h2><!--블락 element라서 자동으로 <br>-->
+        <h3>자기소개서</h3>
+        <p>
+            저는 유복한 가정에서 태어났읍니다.<br>
+            자상하신 부모님의 사랑을 받으면 자랐읍니다.<br>
+        </p>
+        <p style="background-color: green;text-align: right;"><!-- 태그 속성 = "속성의 값"-->
+            지원동기는 사장이 되려고 합니다.<br>
+            열심히 하겠읍니다.
+        </p>
+        <!-- 속성값은 반드시 ""나 '로 감싸주기! -->
+        <!-- 블락영역의 기준은 부모를 따라간다 p>div>body -->
+        <div style="background-color: yellow;width: 400px;">
+            <p style="text-align: center;">가운데 정렬</p>
+        </div>
+
+    </div>
+</body>
+</html>
