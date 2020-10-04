@@ -2,30 +2,6 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array03_1.html</title>
-
-    <script>
-        //배열 선언 방법1
-        var array = new Array(5);
-        document.write('배열 크기'+array.length);
-        document.write('<br/>array의 자료형 : '+typeof array + ', Array의 값 : '+array);
-        console.log(array);
-        document.write('<h2>배열 초기화 전</h2>');
-        document.write('<ul>');
-        for(var i=0;i<array.length;i++){
-            document.write('<li>array['+i+']='+array[i]+'</li>')
-        }
-        document.write('</ul>');
-        array[0]=100;
-        array[1]=new Date();//new해서 만든건 다 객체(object)
-        array[2]=3.14;
-        array[3]=true;
-        array[4]='자바스크립트';            
-        //자바스크립트는 배열의 크기가 가변적
-        array[5] = 100; //메모리가 새롭게 추가됨
-=======
     <meta name="viewport" content="width=], initial-scale=1.0">
     <title>Array03_1.html</title>
     <script>
@@ -58,67 +34,10 @@
         array[4]='자바스크립트';
         //배열의 크기 가변적
         array[5] = 100;//5번방은 없지만 방이 새롭게 추가된다.
->>>>>>> 34a8fe2640401f63ed70ca729de792ad2d1f3ac0
         array.push(200);
         array.push(300);
         array.push(400);
         array.push(500);
-<<<<<<< HEAD
-        document.write('메모리 추가 후 배열 크기 : '+array.length);
-
-        document.write('<h2>배열 초기화 후</h2>');
-        document.write('<ul>');
-        for(var i=0;i<array.length;i++){
-            document.write('<li>'+'자료형 : '+typeof array[i]+' array['+i+']='+array[i]+'</li>');
-        }
-        document.write('</ul>');
-        //선언과 동시에 초기화
-        var initArray = new Array('홍길동',20,'가산동',new Date());
-
-        document.write('<h2>배열 선언과 동시에 초기화 (new 연산자 사용)</h2>');
-        document.write('<ul>');
-        for(var i=0;i<initArray.length;i++){
-            document.write('<li>initArray['+i+']='+initArray[i]+'</li>');
-        }
-        document.write('</ul>');
-
-        //배열 선언과 동시에 초기화(new 연산자 미사용. [] 사용)
-        document.write('<h2>배열 선언과 동시에 초기화 (new 연산자 미사용)</h2>');
-        var initNoNew = ['한소인',10,'자바전문과정',{owner:'가길동',est:1970}];//중괄호는 객체
-        document.write('자료형 '+typeof initNoNew);
-        document.write('<ul>');
-        for(var i=0;i<initNoNew.length;i++){
-            console.log(typeof initNoNew[i]=='object');
-            if(typeof initNoNew[i]!='object')
-                document.write('<li>initNoNew['+i+']='+initNoNew[i]+'</li>');
-            else
-                document.write('<li>initNoNew['+i+']=대표자 : '+initNoNew[i].owner+',설립일:'+initNoNew[i].est+'</li>');
-            
-        }
-        document.write('</ul>');
-
-        //배열 크기 미지정으로 선언
-        //프로그래밍시 주로 사용, 값 저장 가능한 메모리는 생성 안됨.
-        //최종적으로 넣은 마지막 인덱스 값 따라 배열 크기 결정
-        document.write('<h2>배열 선언과 동시에 초기화 (new 연산자 미사용, 크기 미지정)</h2>');
-        var nosize = new Array();
-        document.write('배열 크기 : '+nosize.length);
-        nosize[4] = true;
-        nosize[2]=100;
-        nosize[9]='가길동';
-        document.write('<br>배열 크기 : '+nosize.length);
-
-        document.write('<ul>');
-        for(var i=0;i<nosize.length;i++){
-            document.write('<li>nosize['+i+']='+nosize[i]+'</li>');
-        }
-        document.write('</ul>');
-
-        function getAverage(){
-            var text = document.getElementById('students');
-            alert(text.value);
-        }
-=======
         document.write('메모리 추가후 배열 크기:'+array.length);
         document.write('<h2>배열 초기화 후</h2>');
         document.write('<ul>');
@@ -173,22 +92,11 @@
         document.write('</ul>');
         
       
->>>>>>> 34a8fe2640401f63ed70ca729de792ad2d1f3ac0
     </script>
 </head>
 <body>
     <fieldset>
         <legend>학생의 평균 구하기</legend>
-<<<<<<< HEAD
-        학생 수 입력 : <input type="text" id="students"/>
-        <button onclick="getAverage()">평균 구하기</button>
-    </fieldset>    
-
-    <script>
-        //배열 선언]
-        var score = [];//new Array()와 같음
-        
-=======
         학생 수 입력 : <input type="text" id="students" value="111"/>
         <button onclick='getAverage()'>평균 구하기</button>
     </fieldset>
@@ -209,7 +117,6 @@
             var avg = total/score.length;
             console.log('평균 점수 : %d, 총점 : %d',avg, total);
         }
->>>>>>> 34a8fe2640401f63ed70ca729de792ad2d1f3ac0
 
     </script>
 </body>
