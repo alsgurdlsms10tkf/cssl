@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function08_1.html</title>
+    <script>
+        //함수 정의1] 함수 선언문(유명함수)
+        //var 사용 불가
+        /*
+        function 함수명([매개변수1,2..]){
+            실행문;
+            [return문]
+        }
+
+        차이점 : return문 이후에 써도 컴파일 에러 발생 안함.
+        */
+
+        //함수 정의2] 익명함수(함수 표현식)
+        /* 
+        var 변수명 = function(매개변수1...){
+            실행문;
+            return문
+        }
+        >> 함수 호출할 때 변수로 불러도 됨.
+        */
+
+        /*
+        방법3] 즉시 실행함수
+        function [함수명](매개변수1..){
+            !!var 사용X
+        }
+        */
+       //!! 함수 내 선언 변수는 함수 호출이 끝나면 메모리와 함께 사라짐(지역변수)
+
+       //함수형식 1]
+       //함수 선언문
+       function noParamnoReturn(){
+           document.write('<br>===========Menu==========');
+           document.write('<br>1.계속 2.나가기<br>');
+           document.write('=========================<br>');
+       }
+       document.write('noParamNoReturn의 자료형 : ' + typeof noParamnoReturn);
+       noParamnoReturn();
+
+       //함수 형식 2]
+       //함수 정의 - 함수 표현식
+       /*
+        함수의 시작 주소를 왼쪽의 변수명에 저장
+        변수명을 마치 함수명처럼 사용가능
+       */
+      var yesParamNoReturn = function(start,end){
+          var total=0;
+          for(var i=start;i<=end;i++){
+              total+=i;
+          }
+          document.write(start+' 부터 '+end+'까지 누적합 : '+total+'<br>');
+      }
+      document.write('yesParamNoReturn 자료형 : ' + typeof yesParamNoReturn+'<br>');
+      //함수 호출
+      yesParamNoReturn(1,10);
+      /*
+        전역변수 : script태그 안에 선언된 변수로 해당 페이지 어디서나 사용가능
+        지역변수 : 함수 안에 선언된 변수(매개변수도), 함수 밖 사용시 에러
+      */
+     //document.write('함수 안에서 선언된 변수:total='+total+'<br>');
+     //total은 함수 내 선언된 지역변수라서 사라짐, 에러 발생시 아래의 코드는 작동X
+     document.write('응애 나 아기 민혁');
+     
+
+     var noParamYesReturn = function(){
+        var name = prompt('이름 입력 : ','');
+        var age = prompt('나이 입력 : ','20');
+        return '이름 : '+name+'| 나이 : '+age;
+        document.write('return문 이후 출력문');
+     };
+     document.write(noParamYesReturn());
+
+     function yesParamYesReturn(num1, num2){
+         return num1>num2?num1:num2;
+     }
+     document.write('<br>두 숫자 중 더 큰 값 : '+yesParamYesReturn(1,10));
+
+     //즉시 실행함수
+     var plus=(function (num1, num2){
+         return num1+num2;
+     })(10,20);
+     document.write('<br>plus의 자료형 : '+typeof plus);//실행하고 담긴 형태
+     document.write('<br>plus의 값 : '+plus+'<br>');
+
+     //document.write(immediate(1,2));//즉시 실행함수는 대개 이름을 쓰지 않음
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

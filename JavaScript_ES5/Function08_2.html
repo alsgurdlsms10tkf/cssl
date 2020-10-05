@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function08_2.html</title>
+    <script>
+        var param=100,args=1;//전역변수
+        //가장 높은 계층 : window (java의 object 급)
+        console.log(window.param);
+        function callByValue(param,args){//지역변수
+            var temp=param;
+            param=args;
+            args=temp;
+            console.log('callByValue함수 안 : param-%s,args-%s',param,args);
+        }
+        //함수 호출
+        callByValue(param,args);
+        console.log('callByValue함수 밖 : param-%s,args-%s',param,args);
+
+        //CallByRefernce] 객체 주소 전달
+        var array=[100,1];
+        var callByRef = function(arr){
+            var temp = arr[0];
+            arr[0] = arr[1];
+            arr[1]=temp;
+            console.log('callByRef함수 안 : arr[0]-%s,arr[1]-%s',arr[0],arr[1]);
+        };
+        //함수 호출
+        callByRef(array);
+        console.log('callByRef함수 밖 : array[0]-%s,array[1]-%s',array[0],array[1]);
+        //지역변수, 전역변수 충돌시 지역변수가 우선
+        var mVar=100;
+        function conflict(mVar){
+            console.log(this);//this는 윈도우 객체
+            //함수 호출자가 누구냐에 따라 달라짐
+            this.mVar = mVar*2;
+            console.log('함수 안 mVar:',mVar);
+        }
+        window.conflict(mVar);
+        console.log('함수 밖 mVar:',mVar);
+
+        //참조의 의한 호출 예제]
+        var member =[];
+        /*function setMember(member){
+            for(var i=0;i<2;i++){
+                member.push(prompt(i+1+'번째 이름',''));
+                member.push(prompt(i+1+'번째 나이',''));
+                member.push(prompt(i+1+'번째 주소',''));
+            }
+        }
+        //함수 호출]
+        setMember(member);
+            //출력]
+            member.forEach(function(item){
+                console.log(item);
+            });*/
+        
+            //문제 : 배열을 매개변수로 입력받아, 배열을 크기순으로
+            //내림차순 하는 함수를 정의해라
+            //호출하여 그 결과를 출력하라
+            var arr=[9,45,10,23,99,222,34,100,77,88];
+            //1]함수 정의
+            function sortArr(arr){
+                for(var i=1;i<=arr.length;i++){
+                    for(var j=0;j<=arr.length;j++)
+                    if(arr[i]>arr[j]){
+                        var temp=arr[i];
+                        arr[i]=arr[j];
+                        arr[j]=temp;
+                    }
+                }
+                return arr;
+            }
+            //2]함수 호출
+            arr=sortArr(arr);
+            //3] 출력
+            arr.forEach(function(i){
+                document.write(i+' ');
+            })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
