@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video19.html</title>
+</head>
+<body>
+    <h2>기본 비디오 태그</h2>
+    <video src="Media/video.mp4" controls width="200" height="200" autoplay>
+        video 태그를 지원하지 않는 브라우저입니다.<br>
+        여기를 <a href="Media/video.mp4">클릭</a>하세요.
+    </video>
+    <h2>source 하위 태그 사용</h2>
+    <video controls width="200" height="200" loop>
+        <source src="Media/video.3gp" type="video/3gp">
+            <source src="Media/video.mp4" type="video/mp4">
+    </video>
+    <h2>커스텀 비디오</h2>
+    <div>
+        <video width="300" height="200" id="video" src="Media/video.mp4" hidden></video>
+    </div>
+
+    <div>
+        <progress value="0" id="progress"><!--진행율을 나타내는 태그 (html5)-->
+            
+        </progress>
+    </div>
+    <div>
+        <input type="button" value="PLAY" onclick="play()">
+        <input type="button" value="PAUSE" onclick="pause()">
+        <input type="button" value="STOP" onclick="stop()">
+        &nbsp;&nbsp;<span id="current"></span> / <span id='total'></span>
+    </div>
+    
+    <script>
+        //비디오 객체 얻기
+        var video=document.getElementById("video");
+        //span 객체 얻어오기
+        var current_span=document.getElementById("current");
+        var total_span=document.getElementById("total");
+        //progress 객체 얻기
+        var progress=document.getElementById("progress");
+        //addListner 사용 == ontimeupdate
+        video.ontimeupdate=function(){
+            //비디오의 총 재생시간 설정
+            total_span.innerHTML=video.duration;
+            //현재 재생시간
+            current_span.innerHTML=video.currentTime;
+            //타임 업데이트에 따른 프로그래스의 진행정도 표시
+            //최대값 설정
+            progress.max = video.duration;
+            //진행 정도
+            progress.value = video.currentTime;
+        };
+
+        var play = function(){
+            video.play();
+            video.hidden='';//비디오 보이기
+        };
+        var pause = function(){
+            video.pause();
+        };
+        var stop = function(){
+            //stop함수 미지원
+            //기능 구현
+            if(video.played){//played (boolean : 재생중인가?)
+                video.currentTime=0;
+                video.pause();
+            }
+        };
+    </script>
+
+</body>
+</html>

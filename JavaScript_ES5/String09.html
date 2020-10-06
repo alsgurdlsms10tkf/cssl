@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String09.html</title>
+    <script>
+        var str1='안녕 자바스크립트';
+        var str2="Hello JavaScript";
+        var str3='Hi JS';
+        var str4 = new String('Hi JS');//자료형 object, 생성자 : String
+
+        console.log('str3의 자료형 : %s, 생성자 타입 : %s',typeof str3, str3 instanceof String);
+        console.log('str3의 자료형 : %s, 생성자 타입 : %s',typeof str4, str4 instanceof String);
+
+        console.log(str3);//Hi JS
+        console.log(str4);//String {"Hi JS"}
+
+        //1]문자열 길이 얻기 - length
+        console.log('str1의 길이 : %s',str1.length);//property는 묶으면 안된다.
+        console.log('str2의 길이 : %s',str2.length);//property는 묶으면 안된다.
+        console.log('str4의 길이 : %s',str4.length);//property는 묶으면 안된다.
+
+        //2] 문자열 객체의 함수를 이용해서 텍스트 꾸미기
+        document.write('<h2>함수로 텍스트 효과주기</h2>');
+        document.write('볼드체(함수) : ' + str1.bold()+'<br>');
+        document.write('볼드체(태그) : ' +'<b>'+ str1+'</b>'+'<br>');
+        document.write('기울임(함수) : ' + str1.italics()+'<br>');
+        document.write('기울임(태그) : ' +'<i>'+ str1+'</i>'+'<br>');
+        document.write('함수 혼합(기울임+굵게) : ' + str1.italics().bold()+'<br>');
+        document.write('태그 혼합(기울임+굵게) : ' +'<b>'+'<i>'+ str1+'</i>'+'</b>'+'<br>');
+        document.write('가운데 선 긋기(함수) : ' + str1.strike()+'<br>');
+        document.write('가운데 선 긋기(태그) : ' +'<strike>'+ str1+'</strike>'+'<br>');
+
+        var url="https://www.nate.com";
+        document.write('링크 걸기(함수) : '+str1.link(url));
+        
+        //3]대소문자 변경
+        document.write('<h2>대소문자로 변경하기</h2>');
+        document.write('대문자 : '+str2.toUpperCase()+'<br>');
+        document.write('소문자 : '+str2.toLowerCase()+'<br>');
+
+        //4]특정 위치(인덱스) 하나의 문자 얻어오기
+        //charAt(인덱스)
+        document.write('<h2>CharAt(인덱스)</h2>');
+        document.write('str3에서 인덱스가 3인 문자 : '+str3.charAt(3)+'<br>');
+        document.write('자바스크립트'.charAt(2)+'<br>');
+
+        //5]문자열에서 특정 문자열 얻어오기
+        //substring(시작인덱스, 끝인덱스) : 끝 인덱스 -1까지 가져옴
+        document.write('<h2>substring(시작인덱스, 끝 인덱스)</h2>');
+        document.write('ACADEMY'.substring(3,7)+'<br>');
+
+        //5-1]문자열에서 특정 문자열 얻어오기2
+        //substr(시작인덱스 ,문자열갯수)
+        document.write('<h2>substr(시작인덱스, 갯수)</h2>');
+        document.write('ACADEMY'.substr(3,4));
+        //특정 위치의 아스키 코드값 가져오기
+        //charCodeAt(인덱스) : 자바서 codePointAt(int index)
+        document.write('<h2>charCodeAt(인덱스)</h2>');
+        document.write('ACADEMY'.charCodeAt(3));
+
+        //7]아스키 코드값을 문자로
+        //String.fromCharCode(아스키코드값) 생성자 함수
+        document.write('<h2>fromCharCode(코드값)</h2>');
+        document.write(String.fromCharCode(68));
+
+        document.write('<h2>문자열을 배열처럼</h2>')
+        for(var i=0;i<str3.length;i++){
+            document.write(str3[i]+'<br>');
+        }
+
+        //문제 : 문자열을 매개변수로 받는 함수로
+        //받은 문자가 숫자형식이 아니면 false
+        //숫자형식이면 true를 반환하는 함수를 정의
+        //그 후 호출하여 결과 확인
+
+        //함수 정의
+        var isNum=false;
+        function isNumber(str){
+            for(var i=0;i<str.length;i++){
+                if(parseInt(str.substr(i,1).charCodeAt(0))>='0'.codePointAt(0) && parseInt(str.substr(i,1).charCodeAt(0))<='9'.codePointAt(0))
+                    isNum=true;
+                else{
+                    isNum=false;
+                    break;
+                }
+                    
+            }    
+            return isNum;
+        }
+        //함수 호출
+        document.write('--------문제--------<br>');
+        document.write(isNumber('1234')+'<br>');
+        document.write(isNumber('1AB4')+'<br>');
+        document.write(isNumber('A23D')+'<br>');
+        
+
+        //선생님 풀이 : 자스에서는 숫자 이외의 형식에서 문자와 숫자 비교시 무조건 false
+        var ISNUMBER = function(str){
+            for(var i=0;i.str.length;i++){
+                if(str[i]>=0 && str[i]<=9){
+                    return false;
+                }
+            }
+            return true;
+        };
+        //함수 호출]
+        //document.write(isNumber('12A')+'<br>');
+        //document.write(isNumber('가100')+'<br>');
+        //document.write(isNumber('100사')+'<br>');
+
+        //8. : 구분자로 문자열 분리, 배열 반환
+        document.write('<h2>split 구분자</h2>')
+        var tel="010.1234.5678";
+        var arr = tel.split('.');// 
+        for(i=0;i<arr.length;i++){
+            document.write('ar['+i+'] = '+arr[i]+'<br>');
+        }
+        //9]특정 문자열 인덱스값 알아내기
+        //indexOf("찾는 문자열"):찾는 문자열이 존재하면, 찾는 문자열 시작 인덱스 값 반환 ,없으면 -1
+        document.write('<h2>문자열 찾기(indexOf)</h2>');
+        document.write('ACADEMY'.indexOf('CAD'));
+        document.write('ACADEMY'.indexOf('CaD'));
+        //9]특정 문자열 뒤에서 찾기
+        document.write('<h2>문자열 찾기(lastIndexOf)</h2>');
+        document.write('ACADEMY'.lastIndexOf('A'));
+        document.write('ACADEMY'.lastIndexOf('a'));
+
+        /*
+        아래 이메일 주소에서 @와 .사이에 있는 값만 얻어오기
+        */
+        var email=['kim@naver.com','park@cyworld.com','lee@nate.com'];
+        //문] 배열을 매개변수로 받아 가운데 도메인만 얻어서 출력하는 함수 정의하고 함수 호출하자
+        document.write('<br>--------문제 : 중간 도메인 구하기--------<br>');
+        var domain = function(str){
+            for(var i=0;i<str.length;i++){
+                document.write(str[i].substring(str[i].indexOf('@')+1,str[i].lastIndexOf('.'))+'<br>');
+            }
+        };
+
+        domain(email);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
