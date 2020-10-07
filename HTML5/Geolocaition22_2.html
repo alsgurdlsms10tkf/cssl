@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocaition22_2.html</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Geolocaition API 현재 위치의 위도/경도 얻기</legend>
+        <button onclick="start()";>위치추적 시작</button>
+        <button onclick="stop()">위치추적 종료</button>
+        <span id="display" style="color:red;font-size: 1.5em;font-weight: bold;"></span>
+    </fieldset>
+    <script>
+        console.log(window.navigator.geolocation);
+        //DOM객체 얻기
+        var span=document.getElementById('display');
+        var watcher;
+        function start(){
+            if(navigator.geolocation){//지원 여부 판단
+                span.innerHTML='Geolocation API를 지원하는 브라우저입니다.'
+                //positionOptions 객체 설정용
+                var options = {timeout:3000//3초동안 위치 못찾으면 타임아웃 에러
+                , maximumAge:5000 //받은 정보의 유효기간은 5초(지나면 폐기해버림)
+                };//리터럴 객체
+                var watcher=navigator.geolocation.watchPosition(successCallback);
+            }
+        }
+        var stop = function(){
+            //위치정보 받기 중지
+            navigator.geolocation.clearWatch(watcher);
+        }
+
+        //위치 정보를 얻었을 때 자동으로 호출되는 콜백 함수 : 인자 = Position객체(Position 타입)
+        function successCallback(position){
+            console.log('position의 자료형 : %s, position : %s',typeof position, position);
+            //위도, 경도 얻기
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            span.innerHTML='위도 : '+lat+' 경도 : '+lng;
+        }
+
+        var errorCallback=function(error){
+            switch(error.coords){
+                case 1: span.innerHTML='허용이 거부됨';break;
+                case 2: span.innerHTML='위치 확인 불가';break;
+                case 3: span.innerHTML='시간 초과';break;
+                default: span.innerHTML=error.message;
+            }
+        };
+    </script>
+</body>
+</html>
