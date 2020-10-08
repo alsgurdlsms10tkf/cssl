@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector01_3.html</title>
+
+    <style>
+        #content{
+            background-color: yellow;
+            width: 300px;
+        }
+        ul li{
+            list-style: none;
+            border: 1px green solid;
+            font-size: 1.4em;
+            font-weight: bold;
+            height: 50px;
+        }
+        
+        /*구조 선택자 */
+        /*홀수번째만 선택 : n은 0부터 시작, 1씩 증가함 */
+        div#content li:nth-child(2n+1){/*1 3 5 7 ~*/
+            background-color: #d95e07;
+        }
+        /*짝수번째만 선택 */
+
+        /*cth-child(2n)함수가 first-chile, last-child 속성보다
+        우선 순위가 높다.*/
+        #content li:nth-child(2n){ /*0 2 4 6 8*/
+            background-color: #18bf2e;
+        }
+
+        ul li:last-child{/*마지막 자식만 변경(구조 선택자)*/
+        /*두개가 선택되나, 위의 nth계열이 우선순위가 높아서
+           첫번째의 ul li는 적용이 안됨.*/
+            background-color: aqua;
+        }
+
+        div#content ul li:first-child{
+            border-radius: 10px 10px 0 0;
+        }
+
+        div#content ul li:last-child{
+            border-radius: 0 0 10px 10px;
+        }
+
+        #start::first-letter,#end::first-letter
+        /*start ID를 가진 태그의 첫번째 글자
+        다중 선택자 : ,로 추가해줌 */
+        {
+            font-size: 2em;
+        }
+        /*첫번째 줄 선택*/
+        #start::first-line, #end::first-line{
+            color: red;
+            font-weight: bold;
+        }
+        /*Selection 드래그 한 것처럼 보여줌*/
+        #character p:first-child::selection{
+            color: yellow;
+            background-color: black;
+        }
+
+        /* nth-child 안에 직접 순서 지정 가능
+        li태그들 중 2번째 순서인 친구들이 선택됨*/
+        li:nth-child(2){
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>구조 선택자</h1>
+
+    <div id="content">
+
+        <ul>
+
+            <li>menu1</li>
+
+            <li>menu2</li>
+
+            <li>menu3</li>
+
+            <li>menu4</li>
+
+            <li>menu5</li>
+
+            <li>menu6</li>
+
+        </ul>
+
+    </div>
+
+    <h1>문자 선택자</h1>
+
+    <div id="charcter">
+
+        <p id="start">
+
+            2020년 1월 6일<br />
+
+            6기 시작
+
+        </p>
+
+        <p id="end">
+
+            2020년 7월 24일<br />
+
+            6기 종료
+
+        </p>
+
+    </div>
+
+    <div>
+
+        <ul>
+
+            <li>menu1</li>
+
+            <li>menu2</li>
+
+            <li>menu3</li>
+
+            <li>menu4</li>
+
+            <li>menu5</li>
+
+            <li>menu6</li>
+
+        </ul>
+
+    </div>
+</body>
+
+</html>
