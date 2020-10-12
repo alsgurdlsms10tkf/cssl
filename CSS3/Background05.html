@@ -6,7 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Background05.html</title>
     <style> 
-        
+        #div div{
+            background-color: #b10d0d;
+            width: 80%;
+            height: 400px;
+            background-image: url(../Images/button.png);
+            background-repeat: no-repeat;
+        }
+        #div div:first-child{
+            border: 5px yellow solid;
+            /*CSS 3.0에서 등장*/
+            background-size: 100% 100%;
+            /*가로 세로 폭 지정하기*/
+        }
+        #div div:last-child{
+            border: 5px green solid;
+            /*CSS 3.0에서 등장*/
+            background-size: 30% 100%
+            /*가로 세로 폭 지정하기*/
+        }
     </style>
 </head>
 

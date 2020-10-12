@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List08.html</title>
+    <style>
+        /* ul태그 중 sport 값을 가진 태그 */
+        ul.sport{
+            border: 1px red solid;
+        }
+        ul.sport li{
+          border: 1px green;
+          list-style-position: inside;
+          list-style-type: upper-roman;
+        }
+        ul.image{
+            list-style-image: url(../Images/arrow.PNG);
+        }
+
+        ul.inline li{/*블락 E를 인라인 E 로 만들기!*/
+        /* display:inline */
+            border:1px red solid;
+            display: inline;
+            /* 적용 안됨 : 인라인으로 변해서 */
+            width: 200px;
+            height: 200px;
+        }
+        ul.inline2{
+            /* inline2의 클래스를 가지는 ul태그*/
+            list-style:  none;
+        }
+        ul.inline2 li{
+            /* 방법 2 : 블릿 제거 후 float 해주기 
+            블락 E의 특징 및 성능을 가지게 됨*/
+            border: 1px red double;
+            float: left;
+
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+        ul.inline3 li{
+            border: 1px rebeccapurple solid;
+            display: inline-block;
+            /*display : inline-block 을 주면 block 성격을 부여해줌, 불릿 자동 제거*/
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+        ul.bullet{ /*bullet 제거하기*/
+            border: 1px red dotted;
+            list-style: none;
+            /*padding-left: -100px; X 패딩은 음수값 적용이 안됨!*/
+            
+        }
+        ul.bullet li{ /*bullet 제거하기*/
+            border: 1px green dashed;
+            list-style: none;
+            margin-left: -40px; /*Margin에는 음수값을 줄 수 있다.*/
+        }
+        /*목록 태그를 메뉴로 만들어보기*/
+        div fieldset:last-child li{
+            display: inline;
+            border-right: gray solid 1px;
+            padding-right: 5px;
+        }
+        div fieldset:last-child li:last-child{
+            display: inline;
+            border-right: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>목록관련 CSS속성</h2>
+
+    <div>
+
+        <fieldset>
+
+            <legend>당신이 좋아하는 스포츠는?</legend>
+
+            <ul class="sport">
+
+                <li>축구</li>
+
+                <li>배구</li>
+
+                <li>야구</li>
+
+            </ul>
+
+        </fieldset>
+
+        ​
+
+        <fieldset>
+
+            <legend>당신이 좋아하는 스포츠는?</legend>
+
+            <ul class="image">
+
+                <li>축구</li>
+
+                <li>배구</li>
+
+                <li>야구</li>
+
+            </ul>
+
+        </fieldset>
+
+        ​
+
+        <fieldset>
+
+            <legend>당신이 좋아하는 스포츠는?(li를 인라인으로)[방법1]</legend>
+
+            <ul class="inline">
+
+                <li>축구</li>
+
+                <li>배구</li>
+
+                <li>야구</li>
+
+            </ul>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>당신이 좋아하는 스포츠는?(li를 인라인으로)[방법2]</legend>
+
+            <ul class="inline2">
+
+                <li>축구</li>
+
+                <li>배구</li>
+
+                <li>야구</li>
+
+            </ul>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>당신이 좋아하는 스포츠는?(li를 인라인으로)[방법3]</legend>
+
+            <ul class="inline3">
+
+                <li>축구</li>
+
+                <li>배구</li>
+
+                <li>야구</li>
+
+            </ul>
+
+            ​
+
+        </fieldset>
+
+        ​
+
+        <fieldset class="fieldset">
+
+            <legend>당신이 좋아하는 스포츠는?(블릿만 제거)</legend>
+
+            <ul class="bullet">
+
+                <li>축구</li>
+
+                <li>배구</li>
+
+                <li>야구</li>
+
+            </ul>
+
+        </fieldset>
+
+        ​
+
+        <fieldset>
+
+            <legend>UL을 TOP메뉴로 구현</legend>
+
+            <ul>
+
+                <li><a href="https://www.nate.com">회원가입</a></li>
+
+                <li>공지사항</li>
+
+                <li>로그인</li>
+
+                <li>게시판</li>
+
+            </ul>
+
+        </fieldset>
+
+    </div>
+</body>
+
+</html>

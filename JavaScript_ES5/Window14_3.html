@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window14_3.html</title>
+
+    <script>
+        /*
+            setTimeout("함수명() 혹은 무명함수",1000분의 1초 단위) : timer 객체 반환
+            : 특정 시간이 지난 후 어떤 함수를 한번만 실행시키고자 할 때 사용하는 메소드
+
+            타이머 객체 실행 중지
+            clearTimeout(타이머객체) 호출
+
+            타이머 변수 = setInterval("함수명() or 무명함수",1000분의 1초)
+            : 매개변수에 주어진 시간이 되면 해당 함수가 호출됨
+            해제시 : clearInterval(타이머 변수)
+        */
+       var timeOne, timeContinue, counter=0;
+
+        function fnCallAfter(flag){
+            if(flag=='T'){
+                //익명함수 사용하기
+                //timeOne=setTimeout(function(){console.log('5초후 한번 실행')},5000)
+                timeOne=setTimeout(fnOnce,5000);
+                //timeOne=setTimeout(fnOnce(),5000); 바로 호출되어버림
+                //timeOne=setTimeout("fnOnce()",5000); <<함수를 ""로 감싼다면 인자 전달 가능
+            }
+            else{
+                timeContinue = setInterval(function(){
+                    console.log('3초마다 호출(실행)'+ ++counter+'번째 호출');
+                },3000)
+            }
+        }
+        function fnOnce(){
+            console.log('5초 후 한번 실행');
+        }
+
+        function fnCallBreak(flag){
+            if(flag==1){
+                clearTimeout(timeOne);
+            }
+            else{
+                clearInterval(timeContinue);
+            }
+                
+        }
+        //문제 : 현재 페이지가 웹브라우저에 로드시 'clock' 이라는 아이디를 가진
+        //span 태그에 ?시 ?분 ?초를 표시하되, 1초마다 갱신되어야 한다.
+       
+        timeContinue = function(){
+            var span = document.getElementById('clock');
+            var date = new Date();
+            dateStr = date.getHours()+'시 '+date.getMinutes()+'분 '+ date.getSeconds()+'초';
+                console.log(dateStr);
+                span.innerHTML=dateStr;
+            };
+        
+        addEventListener('load',function(){
+            setInterval(timeContinue,1000);
+        });
+
+    </script>
+</head>
+
+<body>
+    <fieldset>
+
+        <legend>타이머</legend>
+
+        <h4>일정 시간후 함수 실행</h4>
+
+        <input type="button" value="5초후 함수 실행" onclick='fnCallAfter("T");' />
+
+        <input type="button" value="함수 호출 중지" onclick="fnCallBreak(1);" />
+
+        <h4>일정시간마다 함수실행</h4>
+
+        <input type="button" value="3초마다 함수 실행" onclick="fnCallAfter('I');" />
+
+        <input type="button" value="함수 호출 중지" onclick="fnCallBreak(2);" />
+
+        <h4>시분초 표시</h4>
+
+        <span id="clock" style="color:Green;font-size:1.8em;font-weight:bold"></span>
+
+        ​
+
+    </fieldset>
+</body>
+
+</html>
