@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyFrame14.html</title>
+    <!-- KeyFrame >> 규칙 -->
+    <style>
+        /* KeyFrame 규칙을 이용한 애니메이션 */
+        *{
+            margin : 0;
+            padding : 0;
+        }
+        #rect{
+            width: 100px;
+            height: 100px;
+            background-color: olive;
+            /* 애니메이션 적용 목적 CSS 속성(KeyFrame) */
+            animation-duration: 3s;
+            /* KeyFrame 통한 애니메이션 이름 지정(중요) */
+            animation-name: myani1;
+        }
+        /* @이 붙은건 규칙으로 생각하면 됨 */
+        @keyframes myani1{
+            /* myani1로 지정된 선택자에 애니메이션 일어남 */
+            /* from{
+                width: 100px;
+                height: 100px;
+            }from절 생략 가능 */
+            to{
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        #circ1{
+            width: 100px;
+            height: 100px;
+            background-color :orange;
+            position: absolute;
+            left: 0px;
+            top: 100px;
+
+            animation-duration: 3s;
+            animation-name: myani2;
+        }
+        @keyframes myani2 {
+            to{
+                width: 400px;
+                height: 200px;
+                line-height: 200px;
+                transform: rotate(360deg);
+                border-radius: 100px;
+            }
+        }
+
+        #circ2{
+            width: 100px;
+            height: 100px;
+            background-color :orchid;
+            position: absolute;
+            left: 0px;
+            top: 200px;
+
+            animation-duration: 3s;
+            animation-name: myani3;
+            animation-iteration-count: infinite;
+        }
+        @keyframes myani3 {
+            to{
+                left: 400px;
+                top: 600px;
+                border-radius: 400px;
+            }
+        }
+        /* 마우스 오버시 애니메이션 중지 */
+        #circ2:hover{
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="rect"></div>
+        <div id="circ1">CIRCLE</div>
+        <div id="circ2"></div>
+    </div>
+
+</body>
+</html>

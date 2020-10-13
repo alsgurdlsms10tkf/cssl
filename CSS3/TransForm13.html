@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransForm13.html</title>
+    <style>
+        #rect{
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            line-height: 150px;
+            text-align: center;
+            /* 애니메이션과 관련된 속성 */
+            transition-duration: 3s; 
+            /* 변형이 일어나는 시간 3초 */
+        }
+        /* 마우스 올리면 변형 */
+        #rect:hover{
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            background-color: royalblue;
+        }
+        #rect:active{
+            /* width: 300px;
+            height: 300px;
+            line-height: 300px; */
+            background-color: sandybrown;
+            border-radius: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h2>변형</h2>
+    <div id='rect'>Rectangle</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+.content{
+    width: 80%;
+    background-color: red;
+    margin: 0 auto;
+}
+.content p{
+    border: 2px black solid;
+    font-size: 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+}

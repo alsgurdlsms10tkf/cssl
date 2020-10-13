@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImportMedia15.html</title>
+    <!--<link rel="stylesheet" href="../Styles/import.css">-->
+    <style>
+            /*
+                import 규칙을 이용한 외부 css 파일 연결
+                반드시 style 태그 안에 최상단에 위치(안그러면 적용 안됨.)
+            */
+        @import url(../Styles/import.css);
+        .content{
+            color: red;
+            background-color: yellow;
+        }
+       /*media 규칙은 위치에 상관없음*/
+       @media screen{
+           .content{
+               color: darkcyan;
+           }
+       }
+       @media print{
+           .content{
+               color: black;
+               background-color: white;
+           }
+       }
+    </style>
+</head>
+
+<body>
+    <div class='content'>
+        <p>[파이낸셜뉴스]
+
+            추미애 법무부 장관이 아들이 직접 군에 휴가 문의를 하지 않고 보좌관이 하도록 한 것에 대해 "졸병이라 상관에게 전화하기가 쉽지 않았을 것"이라고 해명했다.
+            이에 대해 진중권 전 동양대 교수가 “군대가 유치원이냐”며 비꼬았다.
+
+            진 전 교수는 13일 자신의 페이스북을 통해 "군대엔 보고 체계가 있고 보고는 쫄병이 상관한테 하는 건데"라며
+            "엄마 보좌관 없는 병사들은 병가도 못 받는다는 얘기냐"고 지적했다.</p>
+    </div>
+</body>
+
+</html>
